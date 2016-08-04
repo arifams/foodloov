@@ -17,8 +17,10 @@ class RecipesController < ApplicationController
 		@recipe = Recipe.new(recipe_params)
 
 		if @recipe.save
+			# show a success flash message and redirect to the recipe show page
 			redirect_to @recipe, notice: "Successfully created your recipe"
 		else
+			# show fail flash message and render to new page for another shot to creating a recipe
 			render 'new'
 		end
 	end
@@ -28,8 +30,10 @@ class RecipesController < ApplicationController
 
 	def update
 		if @recipe.update(recipe_params)
+			# display a success flash and redirect to recipe show page
 			redirect_to @recipe
 		else
+			# display an alert flasha remain on edit page
 			render 'edit'
 		end
 	end
@@ -42,7 +46,9 @@ class RecipesController < ApplicationController
 	private
 
 	def recipe_params
-		params.require(:recipe).permit(:title, :description, :image, ingredients_attributes: [:id, :name, :_destroy], directions_attributes: [:id, :step, :_destroy])
+		params.require(:recipe).permit(:title, :description, :image, 
+			ingredients_attributes: [:id, :name, :_destroy], 
+			directions_attributes: [:id, :step, :_destroy])
 	end
 
 	def find_recipe
