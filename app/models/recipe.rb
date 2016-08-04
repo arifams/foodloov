@@ -1,5 +1,8 @@
 class Recipe < ApplicationRecord
 
+	# This is for user and make relation with recipe
+	belongs_to :user
+
 	# add inverse_of because I cannot save the ingredients. Stackoverflow said
 	# When you include the inverse_of, rails now knows about those associations and will "match" them in memory.
 	has_many :ingredients, inverse_of: :recipe
@@ -16,7 +19,7 @@ class Recipe < ApplicationRecord
 	# This is the script to make user validation error if they don't have any title, image and description
 	validates :title, :description, :image, presence: true
 
-	# and this is to upload image and control the extension
+	# and this is to upload image and control the filename extension bt paperclip gem
 	has_attached_file :image, styles: { medium: "400x400#", }
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 end

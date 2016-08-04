@@ -4,8 +4,15 @@
 			= image_tag @recipe.image.url(:medium), class: "recipe_image"
 		.col-md-8
 			#recipe_info
+				-# this is the recipe title
 				%h1= @recipe.title
+				-# this is the recipe author email
+				%p 
+					Submited by
+				-#	= @recipe.user.email
+				-# this is the recipe description
 				%p.description= @recipe.description
+
 
 	.row
 		.col-md-4
@@ -33,5 +40,6 @@
 	.row
 		.col-md-12
 			= link_to "Back", root_path, class: "btn btn-default"
-			= link_to "Edit", edit_recipe_path, class: "btn btn-default"
-			= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-default"
+			- if user_signed_in?
+				= link_to "Edit", edit_recipe_path, class: "btn btn-default"
+				= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-default"
