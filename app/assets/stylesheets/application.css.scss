@@ -16,6 +16,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+// To add logo font for foodloov
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif);
 
 @mixin box-shadow {
@@ -34,7 +35,7 @@ $red: #DB6161;
 $pale-sky: #6b717f;
 
 body {
-	background: darken($pale-sky, 15);
+	background: darken($pale-sky, 5);
 }
 
 .main_content {
@@ -55,7 +56,7 @@ body {
 	margin-bottom: 50px;
 	margin-top: 3px;
 	height: 100px;
-	// @include box-shadow-navbar;
+	@include box-shadow-navbar;
 	border: none;
 	// This is foodloov logo
 	.navbar-brand {
