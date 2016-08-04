@@ -13,7 +13,7 @@ class Recipe < ApplicationRecord
 								   reject_if: proc { |attributes| attributes['name'].blank?}, 
 								   allow_destroy: true
 	accepts_nested_attributes_for :directions, 
-								   reject_if: proc { |attributes| attributes['name'].blank?}, 
+								   reject_if: proc { |attributes| attributes['step'].blank?}, 
 								   allow_destroy: true
 
 	# This is the script to make user validation error if they don't have any title, image and description
@@ -22,4 +22,12 @@ class Recipe < ApplicationRecord
 	# and this is to upload image and control the filename extension bt paperclip gem
 	has_attached_file :image, styles: { medium: "400x400#", }
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
+	# This is to find out the last 12 characters youtube digit
+	def youtube_code
+		return if video.nil?
+		
+		url = URI.parse(video)
+		url.query.split('=').last
+	end
 end

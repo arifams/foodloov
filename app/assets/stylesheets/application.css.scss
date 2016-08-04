@@ -110,7 +110,7 @@ body {
 	margin-bottom: 50px;
 }
 
-#recipe_info, #ingredients, #directions {
+#recipe_info, #ingredients, #directions, #video {
 	background: white;
 	@include box-shadow;
 	min-height: 360px;
@@ -136,7 +136,7 @@ body {
 	}
 }
 
-#ingredients, #directions {
+#ingredients, #directions, #video {
 	margin-bottom: 50px;
 	ul, ol {
 		padding-left: 18px;
@@ -147,6 +147,10 @@ body {
 	}
 }
 
+.img-auto {
+	width: 100%;
+	height: auto;
+}
 .form-inline {
 	margin-top: 15px;
 }

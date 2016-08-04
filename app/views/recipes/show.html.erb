@@ -1,0 +1,75 @@
+<div class="main_content">
+  <div class="row" id="recipe_top">
+    <div class="col-md-4">
+      <%= image_tag @recipe.image.url(:medium), class: "recipe_image" %>
+    </div>
+    <div class="col-md-8">
+      <div id="recipe_info">
+        <% # this is the recipe title %>
+        <h1>
+          <%= @recipe.title %>
+        </h1>
+        <% # this is the recipe author email %>
+        <p>
+          Submited by
+          <%= @recipe.user.email %>
+        </p>
+        <% # this is the recipe description %>
+        <p class="description">
+          <%= @recipe.description %>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div id="ingredients">
+        <h2>Ingredients</h2>
+        <ul>
+          <% @recipe.ingredients.each do |ingredient| %>
+            <li>
+              <%= ingredient.name %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div id="directions">
+        <h2>Directions</h2>
+        <ul>
+          <% @recipe.directions.each do |direction| %>
+            <li>
+              <%= direction.step %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <% # This has to be for video but i just don't know yet how to do it %>
+    <div class="col-md-4">
+      <div id="video">
+        <h2>
+          <%= @recipe.title  %> Video
+        </h2>
+        <br/>
+        <% unless @recipe.video.nil? %>
+          <iframe frameborder="0" height="auto" src="https://www.youtube.com/embed/<%= @recipe.youtube_code %>" width="auto"></iframe>
+        <% else %>
+          <%=image_tag 'missing-video.png', class: 'img-auto' %>
+
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= link_to "Back", root_path, class: "btn btn-default" %>
+      <% if user_signed_in? %>
+        <%= link_to "Edit", edit_recipe_path, class: "btn btn-default" %>
+        <%= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-default" %>
+      <% end %>
+    </div>
+  </div>
+</div>

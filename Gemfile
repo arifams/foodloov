@@ -16,6 +16,7 @@ gem 'paperclip', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'cocoon', '~> 1.2', '>= 1.2.9'
 gem 'devise', '~> 4.2'
+gem 'acts_as_votable', '~> 0.10.0'
 gem 'aws-sdk', '~> 2.5'
 gem 'sdoc', '~> 0.4.1'
 

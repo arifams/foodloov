@@ -15,7 +15,10 @@ class RecipesController < ApplicationController
 	end
 
 	def create
-		@recipe = current_user.recipes.build(recipe_params)
+		@recipe = Recipe.new(recipe_params)
+		@recipe.user_id = current_user.id
+
+		puts @recipe.inspect
 
 		if @recipe.save
 			# show a success flash message and redirect to the recipe show page
@@ -47,9 +50,10 @@ class RecipesController < ApplicationController
 	private
 
 	def recipe_params
-		params.require(:recipe).permit(:title, :description, :image, 
+		params.require(:recipe).permit(:title, :description, :image, :video,
 			ingredients_attributes: [:id, :name, :_destroy], 
 			directions_attributes: [:id, :step, :_destroy])
+
 	end
 
 	def find_recipe
