@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-	before_action :find_recipe, only: [:show, :edit, :update, :destroy]
+	before_action :find_recipe, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 	before_action :authenticate_user!, except: [:index, :show]
 
 
@@ -47,9 +47,22 @@ class RecipesController < ApplicationController
 		redirect_to root_path, notice: "Successfully deleted recipe"
 	end
 
+	# upvote and downvote from user
+
+	def upvote
+		@recipe.upvote_from current_user
+		redirect_to root_path
+	end
+
+	def downvote
+		@recipe.downvote_from current_user
+		redirect_to root_path
+	end
+
 	private
 
 	def recipe_params
+		# As I don't trust parameters from scary internet, this is only allow the white list
 		params.require(:recipe).permit(:title, :description, :image, :video,
 			ingredients_attributes: [:id, :name, :_destroy], 
 			directions_attributes: [:id, :step, :_destroy])
@@ -57,6 +70,7 @@ class RecipesController < ApplicationController
 	end
 
 	def find_recipe
+		# use callbacks to share common setup setup por constrains between actions
 		@recipe = Recipe.find(params[:id])
 
 	end

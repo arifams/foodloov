@@ -3,6 +3,9 @@ class Recipe < ApplicationRecord
 	# This is for user and make relation with recipe
 	belongs_to :user
 
+	# This is the voting votable for user
+	acts_as_votable
+
 	# add inverse_of because I cannot save the ingredients. Stackoverflow said
 	# When you include the inverse_of, rails now knows about those associations and will "match" them in memory.
 	has_many :ingredients, inverse_of: :recipe

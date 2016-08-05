@@ -203,7 +203,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_votable (~> 0.10.0)
+  acts_as_votable
   aws-sdk (~> 2.5)
   bootstrap-sass (~> 3.3, >= 3.3.7)
   byebug

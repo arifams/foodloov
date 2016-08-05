@@ -1,0 +1,37 @@
+<% @recipe.each_slice(3) do |recipes| %>
+  <div class="row">
+    <% recipes.each do |recipe| %>
+      <div class="col-md-4">
+        <div class="recipe">
+          <div class="image_wrapper">
+            <%= link_to recipe do %>
+              <%= image_tag recipe.image.url(:medium)  %>
+            <% end %>
+          </div>
+          <h2>
+            <%= link_to recipe.title, recipe %>
+          </h2>
+          
+          <br>
+
+          <div class="caption" style="text-align: left; padding: 0 0 10px 0;">
+            <%= link_to like_recipe_path(recipe), class: "like", method: :put do %>
+              <button type="button" class="btn btn-primary" aria-label="Left Align">
+                <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                <span class="badge"><%= recipe.get_upvotes.size %></span>
+              </button>
+            <% end %>
+
+            <%= link_to unlike_recipe_path(recipe), class: "like", method: :put do %>
+              <button type="button" class="btn btn-info" aria-label="Left Align">
+                <span class="glyphicon glyphicon glyphicon-heart-empty glyphicon-align-center" aria-hidden="true"></span>
+                <span class="badge"><%= recipe.get_downvotes.size %></span>
+              </button>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

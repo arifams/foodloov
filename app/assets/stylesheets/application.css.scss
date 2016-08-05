@@ -35,7 +35,10 @@ $red: #DB6161;
 $pale-sky: #6b717f;
 
 body {
-	background: darken($pale-sky, 5);
+	// background: darken($pale-sky, 5);
+	background: {
+     image: asset_url("pap_texture.jpg");
+  }
 }
 
 .main_content {
@@ -165,4 +168,13 @@ body {
 }
 .add-button {
 	margin-top: 25px;
+}
+
+// This is for the likes stuff
+.like {
+	padding-bottom: 10px;
+}
+
+.like:hover {
+	text-decoration: none;
 }
