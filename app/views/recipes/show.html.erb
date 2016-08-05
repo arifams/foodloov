@@ -12,13 +12,15 @@
         <% # this is the recipe author email %>
         <p>
           Submited by
-          <%= @recipe.user.email %>
+          <%= @recipe.user.username %>
         </p>
         <% # this is the recipe description %>
         <p class="description">
           <%= @recipe.description %>
         </p>
       </div>
+
+      
     </div>
   </div>
   <div class="row">
