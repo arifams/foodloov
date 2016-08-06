@@ -1,23 +1,5 @@
 # README
 
-foodloov
-
-What is this
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+End of July 2016 - foodloov built to support 15kitchen.com project
+<br>
+Beginning of August 2016 - foodloov change it's name to Kalawaya (to respect kallawayas people, the nomadic medicine man)
