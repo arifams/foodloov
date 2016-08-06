@@ -1,0 +1,45 @@
+<html></html>
+<head>
+  <title>Foodlof</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-brand">
+        <%= link_to "Foodlof", root_path %>
+      </div>
+      <% if user_signed_in? %>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to "New Recipe | ", new_recipe_path %>
+          </li>
+          <li>
+            <%= link_to "User Setting | ", edit_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to "Sign Out | ", destroy_user_session_path, method: :delete %>
+          </li>
+          <li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
+        </ul>
+      <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to "Sign Up", new_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to "Login", new_user_session_path %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  </nav>
+  <div class="container">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "Alert" %>
+    <% end %>
+    <%= yield %>
+  </div>
+</body>

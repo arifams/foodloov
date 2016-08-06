@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
   has_many :recipes
+  has_many :likes
 
   # to make user can vote
   acts_as_voter
@@ -20,7 +21,7 @@ class User < ApplicationRecord
     @login || self.username || self.email
   end
   
-  # override devise look up
+  # override devise look up to give username and email valid on login
   def self.find_for_database_authentication(warden_conditions)
   	conditions = warden_conditions.dup
   	if login = conditions.delete(:login)
@@ -47,5 +48,9 @@ class User < ApplicationRecord
       errors.add(:username, :invalid)
     end
   end
+
+  # this is to upload user avatar
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/assets/images/missing-user.jpg"
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 end

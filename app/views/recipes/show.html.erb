@@ -48,7 +48,7 @@
         </ul>
       </div>
     </div>
-    <% # This has to be for video but i just don't know yet how to do it %>
+    <% # This has to be for video %>
     <div class="col-md-4">
       <div id="video">
         <h2>
@@ -59,8 +59,6 @@
           <iframe frameborder="0" height="auto" src="https://www.youtube.com/embed/<%= @recipe.youtube_code %>" width="auto"></iframe>
         <% else %>
           <%=image_tag 'missing-video.png', class: 'img-auto' %>
-
-
         <% end %>
       </div>
     </div>

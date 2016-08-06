@@ -55,6 +55,10 @@ body {
 	font-weight: bold;
 }
 
+.navbar-nav {
+	padding: 25px 0 0 0;
+}
+
 .navbar {
 	margin-bottom: 50px;
 	margin-top: 3px;
@@ -124,6 +128,8 @@ body {
 .recipe_image {
 	max-width: 100%;
 	border-radius: 5px;
+	outline: 5px solid white;
+  	outline-offset: -5px;
 	@include box-shadow;
 }
 
@@ -177,4 +183,18 @@ body {
 
 .like:hover {
 	text-decoration: none;
+}
+
+// this is for avatar user
+.round-image-50 {
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    text-align: center;
+    img { width: 100% }
 }
