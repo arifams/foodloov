@@ -6,45 +6,55 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-  <nav class="navbar navbar-default">
+  
+    <div class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-      <div class="navbar-brand">
-        <%= link_to "Foodlof", root_path %>
-      </div>
-      <% if user_signed_in? %>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <%= link_to "New Recipe | ", new_recipe_path %>
-          </li>
-          <li>
-            <%= link_to "User Setting | ", edit_user_registration_path %>
-          </li>
-          <li>
-            <%= link_to "Sign Out | ", destroy_user_session_path, method: :delete %>
-          </li>
-          <li>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle Navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
 
-          <li class="round-image-50">
-            <%= image_tag(current_user.avatar.url(:thumb)) %>
-          </li>
-          <li class="round-image-50">
-            <%= link_to '/users/edit' do %>
-              Lorem Ipsum <%= image_tag(current_user.avatar.url(:thumb)) %>
+        <div class="navbar-brand">
+          <%= link_to "Foodlof", root_path %>
+        </div>
+
+      </div> <!-- end div class="navbar-header" -->
+
+      <div class="collapse navbar-collapse">
+        <% if user_signed_in? %>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active">
+              <%= link_to "New Recipe | ", new_recipe_path %>
+            </li>
+            <li>
+              <%= link_to "Sign Out | ", destroy_user_session_path, method: :delete %>
+            </li>
+            <li>
+            <li>
+              <%= link_to image_tag(current_user.avatar.url(:thumb), :size => "40x40", class: "avatar-style"), edit_user_registration_path %>
+            </li>
+          </ul>
+        <% else %>
+          <ul class="nav navbar-nav navbar-right bg-menu-collapse">
+            <li>
+              <%= link_to new_user_registration_path do %>
+                <i class="glyphicon glyphicon-user"> </i> Sign Up
             <% end %>
-          </li>
-        </ul>
-      <% else %>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <%= link_to "Sign Up", new_user_registration_path %>
-          </li>
-          <li>
-            <%= link_to "Login", new_user_session_path %>
-          </li>
-        </ul>
-      <% end %>
-    </div>
-  </nav>
+            </li>
+            <li>
+              <%= link_to new_user_session_path do %>
+                <i class="glyphicon glyphicon-log-in"> </i> Login
+            <% end %>
+            </li>
+          </ul>
+        <% end %>
+      </div> <!-- end div class="collapse navbar-collapse" -->
+    </div> <!-- end div class="container" -->
+  </div> <!-- end div class="navbar navbar-default navbar-fixed-top" -->
+
   <div class="container">
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, class: "Alert" %>

@@ -32,13 +32,16 @@
 }
 
 $red: #DB6161;
+$white-trans1: rgba(255,255,255, 0.3);
+$white-trans2: rgba(255,255,255, 0.7);
 $pale-sky: #6b717f;
 
 body {
 	// background: darken($pale-sky, 5);
 	background: {
      image: asset_url("pap_texture.jpg");
-  }
+  	}
+  	padding-top: 70px;
 }
 
 .main_content {
@@ -56,23 +59,23 @@ body {
 }
 
 .navbar-nav {
-	padding: 25px 0 0 0;
+	padding: 0 0 0 0;
 }
 
 .navbar {
-	margin-bottom: 50px;
+	margin-bottom: 20px;
 	margin-top: 3px;
-	height: 100px;
+	height: 50px;
 	@include box-shadow-navbar;
 	border: none;
 	// This is foodloov logo
 	.navbar-brand {
-		margin-top: 20px;
+		margin-top: 0px;
 		text-transform: uppercase;
 		font-family: 'Bree Serif', serif;
 		letter-spacing: 2px;
 		font-weight: bold;
-		font-size: 55px;
+		font-size: 36px;
 		a {
 			color: $red;
 		}
@@ -186,15 +189,25 @@ body {
 }
 
 // this is for avatar user
-.round-image-50 {
-    background-color: white;
-    border: 1px solid #d9d9d9;
-    border-radius: 25px;
-    -moz-border-radius: 25px;
-    -webkit-border-radius: 25px;
-    height: 50px;
-    width: 50px;
-    overflow: hidden;
-    text-align: center;
-    img { width: 100% }
+.avatar-style {
+	border-radius: 5em;
+	margin: -10 0 0 0;
+}
+// this is for background menu collapsing
+.bg-menu-collapse {
+	ul {
+		display: block;
+		height: 70px;
+		width: auto;
+	}
+	li {
+		border-bottom: none;
+		background: $white-trans1;
+		margin: 0 5px 0 0;
+		&:hover {
+			border-bottom: 1px solid #90bade;
+			background: $white-trans2;
+			margin: none;
+		}
+	}
 }
