@@ -30,7 +30,7 @@ class Recipe < ApplicationRecord
 	def youtube_code
 		return if video.nil?
 			
-			# This is the 
+			# This is the code that mike taught me but it didn't recognize nil or youtube share link with / characters
 			# url = URI.parse(video)
 			# url.query.split('=').last
 		
