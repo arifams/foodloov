@@ -29,8 +29,12 @@ class Recipe < ApplicationRecord
 	# This is to find out the last 12 characters youtube digit
 	def youtube_code
 		return if video.nil?
+			
+			# This is the 
+			# url = URI.parse(video)
+			# url.query.split('=').last
 		
 		url = URI.parse(video)
-		url.query.split('=').last
+		url.query.try(:split, '=').try(:last) || self.video.try(:split, '/').try(:last) 
 	end
 end
