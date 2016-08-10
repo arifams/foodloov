@@ -23,7 +23,11 @@ class Recipe < ApplicationRecord
 	validates :title, :description, :image, presence: true
 
 	# and this is to upload image and control the filename extension bt paperclip gem
-	has_attached_file :image, styles: { medium: "400x400#", }
+	has_attached_file :image, styles: { 
+		thumb: '100x100>',
+		square: '200x200#',
+		medium: "400x400#", 
+	}
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
 	# This is to find out the last 12 characters youtube digit

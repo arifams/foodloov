@@ -50,7 +50,10 @@ class User < ApplicationRecord
   end
 
   # this is to upload user avatar
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/assets/images/missing-user.jpg"
+  has_attached_file :avatar, :styles => { 
+    :medium => "300x300>",
+    :square => "200x200>",
+    :thumb => "100x100#" }, :default_url => "/assets/images/missing-user.jpg"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 end
