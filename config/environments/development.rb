@@ -54,4 +54,8 @@ Rails.application.configure do
 
   # this is for devise  user login system
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # This is for paperclip s3
+  
+
 end

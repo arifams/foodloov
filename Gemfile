@@ -13,10 +13,12 @@ gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'paperclip'
 gem 'bootstrap-sass'
+gem 'paperclip', '~> 5.0'
+gem 'aws-sdk', '~> 2.5'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'cocoon', '~> 1.2', '>= 1.2.9'
 gem 'devise', '~> 4.2'
 gem 'acts_as_votable'
-gem 'aws-sdk', '~> 2.5'
 gem 'sdoc', '~> 0.4.1'
 
 
