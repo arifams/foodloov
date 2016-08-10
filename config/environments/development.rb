@@ -56,12 +56,6 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # This is for paperclip s3
-  config.paperclip_defaults = {
-        storage: :s3,
-            region: ENV['eu-west-1'],
-        s3_credentials: {
-            bucket: ENV['foodloof'],
-        }
-    }
+  
 
 end
