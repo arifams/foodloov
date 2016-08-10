@@ -75,7 +75,7 @@ Rails.application.configure do
   config.paperclip_defaults = {
   storage: :s3,
   s3_credentials: {
-    bucket: ENV.fetch('foodloof'),
+    bucket: ENV.fetch('http://foodloof.s3-website-eu-west-1.amazonaws.com'),
     access_key_id: ENV.fetch('AKIAISTWQXO3EIY5G3QQ'),
     secret_access_key: ENV.fetch('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'),
     s3_region: ENV.fetch('eu-west-1'),
