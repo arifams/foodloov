@@ -54,4 +54,11 @@ Rails.application.configure do
 
   # this is for devise  user login system
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # This is for paperclip s3
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_host_name => 's3-eu-west-1.amazonaws.com', # http://foodloof.s3.amazonaws.com
+  :bucket => 'foodloof'
+  }
 end

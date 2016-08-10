@@ -73,14 +73,10 @@ Rails.application.configure do
 
   # S3 amazon bucket
   config.paperclip_defaults = {
-  storage: :s3,
-  s3_credentials: {
-    bucket: ENV.fetch('http://foodloof.s3.amazonaws.com'),
-    access_key_id: ENV.fetch('AKIAISTWQXO3EIY5G3QQ'),
-    secret_access_key: ENV.fetch('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'),
-    s3_region: ENV.fetch('eu-west-1'),
+  :storage => :s3,
+  :s3_host_name => 's3-eu-west-1.amazonaws.com', # http://foodloof.s3.amazonaws.com
+  :bucket => 'foodloof'
   }
-} 
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
