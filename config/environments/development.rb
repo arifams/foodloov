@@ -61,8 +61,6 @@ Rails.application.configure do
             region: ENV['eu-west-1'],
         s3_credentials: {
             bucket: ENV['foodloof'],
-            access_key_id: ENV['AKIAISTWQXO3EIY5G3QQ'],
-            secret_access_key: ENV['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']
         }
     }
 
