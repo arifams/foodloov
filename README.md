@@ -1,6 +1,6 @@
 # README
 
-App available in <a href="https://murmuring-thicket-61290.herokuapp.com/recipes/1" target="_blank">Foodlov</a>
+App available in <a href="https://foodoof.herokuapp.com/" target="_blank">Foodlov</a>
 <br>
 
 End of July 2016 - foodloov built to support 15kitchen.com project
